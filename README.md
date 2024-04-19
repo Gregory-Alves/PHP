@@ -1,2 +1,2 @@
 # PHP
- Meus codigos e exercicios de PHP
+ Meus codigos e atividades de PHP
