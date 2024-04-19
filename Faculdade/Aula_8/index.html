@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        input, textarea{
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        input[type="submit"]{
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }     
+    </style>
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="formulario.php" method="post">
+
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite seu Nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" placeholder="funalo@gmail.com" id="email" required>
+
+        <label for="assunto">Assunto:</label>
+        <input type="text" name="assunto" placeholder="Assunto da venda:" id="assunto" required>
+
+        <label for="valor_custo">Valor custo:</label>
+        <input type="number" name="valor_custo" id="valor_custo" placeholder="R$0.00" required>
+
+        <label for="valor_venda">Valor venda:</label>
+        <input type="number" name="valor_venda" id="valor_venda" placeholder="R$0.00" required>
+
+        <label for="conteudo">Conteudo:</label>
+        <textarea name="conteudo" id="conteudo" placeholder="Escreva qual é o conteudo:" required></textarea>
+        
+        <input type="submit" value="Enviar" id="Enviar">
+    </form>
+</body>
+</html>
