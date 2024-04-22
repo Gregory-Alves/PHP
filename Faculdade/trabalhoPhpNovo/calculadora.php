@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     body {
         background-color: black;
-        color: white;
+        color: darkblue;
     }
 
     h1 {
@@ -120,13 +120,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         width: 400px;
         transform: translate(-50%, -50%);
         position: absolute;
-        border: 3px white solid;
+        border: 3px blue solid;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 5%;
-        background-color: grey;
+        background-color:darkcyan;
+        color: lightblue;
         
     }
 
@@ -136,11 +137,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         border-radius: 10px;
         border: 5px solid black;
         margin: 1%;
-        margin-bottom: 3%
+        margin-bottom: 3%;
     }
 
     ::placeholder {
         text-align: center;
+        color: black;
     }
 
     label {
@@ -155,11 +157,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         text-align: center;
         color: black;
         cursor: pointer;
+
     }
 
     option {
         color: black;
-        background-color: white;  
+        background-color: lightblue;  
     }
 
     button {
