@@ -17,13 +17,13 @@
     {
         $media = array_sum($notas) / count($notas);
         if ($media >= 6 && $media <= 10) {
-            $situacao = "Aprovado";
+            $situacao = " e está Aprovado";
         } elseif ($media < 5) {
-            $situacao = "Reprovado";
+            $situacao = " e está Reprovado";
         } else if ($media >= 5 && $media < 6) {
-            $situacao = "Em recuperação";
+            $situacao = " e está Em recuperação";
         } else if ($media > 10) {
-            $situacao = "Alguma(s) das notas digitadas pelo usuário é inválida";
+            $situacao = ". Alguma(s) das notas digitadas pelo usuário é inválida, pois a media esta maior que 10!";
         }
         return [$nome, $media, $situacao];
     }
@@ -37,7 +37,7 @@
 
     foreach ($alunos as $aluno) {
         $resultado = calcularMediaAluno($aluno["nome"], $aluno["notas"]);
-        echo "O aluno " . $resultado[0] . " obteve média " . $resultado[1] . " e está " . $resultado[2] . "<br>";
+        echo "O aluno " . $resultado[0] . " obteve média " . $resultado[1] . $resultado[2] . "<br>";
     }
 
     ?>

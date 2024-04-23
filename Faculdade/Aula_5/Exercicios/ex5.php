@@ -17,8 +17,9 @@ function fatorial($num){
         return $num * fatorial($num - 1);
     }
 }
-$fatorial = fatorial(4);
-echo " Fatorial = $fatorial";
+$num = 5;
+$fatorial = fatorial($num);
+echo " Fatorial de $num = $fatorial";
 
 ?>
 
