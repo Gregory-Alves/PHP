@@ -130,6 +130,7 @@
             input[type="text"]{background-color: lightblue;}
             input[type="text"]:focus{background-color: white;}
             select{background-color: lightblue;}
+            input[type="text"]{text-align: center;}
             
             select:focus{background-color: white;}
         }
@@ -140,7 +141,7 @@
             border: 5px solid black;
             margin: 1%;
             margin-bottom: 3%;
-            transition: border-color 0.3s;
+            transition: border-color 0.5s;
             outline: none;
         }
 
