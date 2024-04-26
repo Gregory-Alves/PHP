@@ -194,7 +194,16 @@
                 <h1>Calculadora</h1>
                 <input type="text" name="num1" placeholder="Digite o primeiro número"><br />
                 <input type="text" name="num2" placeholder="Digite o segundo número"><br />
-                <select name="operacao">
+                
+                <button type="button" name="operacao" value="adicao">Adição</button>
+                <button type="button" name="operacao" value="subtracao">Subtração</button>
+                <button type="button" name="operacao" value="divisao">Divisão</button>
+                <button type="button" name="operacao" value="multiplicacao">Multiplicação</button>
+                <button type="button" name="operacao" value="exponenciacao">Exponenciação</button>
+                <button type="button" name="operacao" value="raiz quadrada">Raiz Quadrada</button>
+                <button type="button" name="operacao" value="fatorial">Fatorial</button>
+                
+                <!--<select name="operacao">
                     <option value="adicao">Adição</option>
                     <option value="subtracao">Subtração</option>
                     <option value="divisao">Divisão</option>
@@ -202,7 +211,7 @@
                     <option value="exponenciacao">Exponenciação</option>
                     <option value="raiz quadrada">Raiz Quadrada</option>
                     <option value="fatorial">Fatorial</option>
-                </select>
+                </select>-->
 
                 <br /><br />
                 <button type="submit" value="Calcular">Calcular</button>
