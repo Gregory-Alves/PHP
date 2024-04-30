@@ -8,22 +8,16 @@
 
         if (($_POST['num1'] == 0 || $_POST['num2'] == 0) && ($_POST['operacao'] == 'divisao')) {
             $exibir = "Não é possível dividir quando um dos numeros é 0!";
-        } 
-        
-        elseif ($_POST['num1'] == 0 && $_POST['num2'] == 0) {
+        } elseif ($_POST['num1'] == 0 && $_POST['num2'] == 0) {
             $exibir = "Não é possível realizar operações quando os dois numeros são 0!";
-        } 
-        
-        elseif (is_numeric($_POST['num1']) && is_numeric($_POST['num2'])) {
+        } elseif (is_numeric($_POST['num1']) && is_numeric($_POST['num2'])) {
             $num1 = $_POST['num1'];
             $num2 = $_POST['num2'];
             $operacao = $_POST['operacao'];
 
             if ($num1 + $num2 <= 0 && ($operacao == 'exponenciacao' || $operacao == 'raiz quadrada' || $operacao == 'fatorial')) {
                 $exibir = "Não é possível realizar a operação de $operacao quando a soma dos dois numeros é menor ou igual a 0!";
-            } 
-            
-            else {
+            } else {
 
                 switch ($operacao) {
                     case 'adicao':
@@ -38,7 +32,7 @@
 
                     case 'divisao':
                         $resultado = $num1 / $num2;
-                        $exibir = "O resultado da divisão é: ". number_format($resultado, 2);
+                        $exibir = "O resultado da divisão é: " . number_format($resultado, 2);
                         break;
 
                     case 'multiplicacao':
@@ -64,6 +58,14 @@
             }
         } 
         
+        elseif (empty($_POST['num2']) && !empty($_POST['num1']) && !is_numeric($_POST['num1'])) {
+            $exibir = "Por favor, insira apenas números no campo 1 e em seguida insira um número no campo 2";
+        } 
+
+        elseif (empty($_POST['num1']) && !empty($_POST['num2']) && !is_numeric($_POST['num2'])) {
+            $exibir = "Por favor, insira um número no campo 1 e em seguida insira apenas números no campo 2";
+        } 
+        
         elseif (!empty($_POST['num1']) && !empty($_POST['num2']) && !is_numeric($_POST['num1']) && !is_numeric($_POST['num2'])) {
             $exibir = "Por favor, insira apenas números nos campos 1 e 2";
         } 
@@ -86,7 +88,7 @@
         
         elseif (empty($_POST['num2'])) {
             $exibir = "Por favor, insira um número no campo 2";
-        }
+        } 
     }
 
     ?>
@@ -100,10 +102,9 @@
         <title>Calculadora</title>
     </head>
     <style>
-
         body {
-            background: rgb(34,193,195);
-            background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(104,50,219,1) 100%);
+            background: rgb(34, 193, 195);
+            background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(104, 50, 219, 1) 100%);
         }
 
         h1 {
@@ -118,8 +119,8 @@
             text-align: center;
             top: 50%;
             left: 50%;
-            /*width: 110vh;*/
-            width: 400px;
+            width: 110vh;
+            /*width: 400px;*/
             transform: translate(-50%, -50%);
             position: absolute;
             border: 3px black solid;
@@ -128,14 +129,30 @@
             flex-direction: column;
             align-items: center;
             padding: 4%;
-            background-color:#6832DB;
+            background-color: #6832DB;
             color: lightblue;
-            input[type="text"]{background-color: lightblue;}
-            input[type="text"]:focus{background-color: white;}
-            select{background-color: lightblue;}
-            input[type="text"]{text-align: center;}
-            select:focus{background-color: white;}
+
+            input[type="text"] {
+                background-color: lightblue;
+            }
+
+            input[type="text"]:focus {
+                background-color: white;
+            }
+
+            select {
+                background-color: lightblue;
+            }
+
+            input[type="text"] {
+                text-align: center;
+            }
+
+            select:focus {
+                background-color: white;
+            }
         }
+
         input {
             width: 80%;
             height: 40px;
@@ -167,7 +184,7 @@
             transition: border-color 0.3s;
         }
 
-       
+
 
         button {
             width: 80%;
@@ -179,11 +196,16 @@
             cursor: pointer;
         }
 
+        button:hover {
+            background-color: lightblue;
+            color: black;
+        }
+
         p {
             font-size: 20px;
             font-weight: bold;
             margin-bottom: -50px;
-            color:black;
+            color: black;
         }
     </style>
 
@@ -193,7 +215,7 @@
                 <h1>Calculadora</h1>
                 <input type="text" name="num1" placeholder="Digite o primeiro número"><br />
                 <input type="text" name="num2" placeholder="Digite o segundo número"><br />
-                
+
                 <button type="submit" name="operacao" value="adicao">Adição</button>
                 <button type="submit" name="operacao" value="subtracao">Subtração</button>
                 <button type="submit" name="operacao" value="divisao">Divisão</button>
@@ -201,23 +223,17 @@
                 <button type="submit" name="operacao" value="exponenciacao">Exponenciação</button>
                 <button type="submit" name="operacao" value="raiz quadrada">Raiz Quadrada</button>
                 <button type="submit" name="operacao" value="fatorial">Fatorial</button>
-                
-                <!--<select name="operacao">
-                    <option value="adicao">Adição</option>
-                    <option value="subtracao">Subtração</option>
-                    <option value="divisao">Divisão</option>
-                    <option value="multiplicacao">Multiplicação</option>
-                    <option value="exponenciacao">Exponenciação</option>
-                    <option value="raiz quadrada">Raiz Quadrada</option>
-                    <option value="fatorial">Fatorial</option>
-                </select>-->
-                <!--<button type="submit" value="Calcular">Calcular</button>-->
 
-                <br />
-                <?php if (!empty($exibir)): ?>
-                <p><?php echo $exibir ?></p>
+                
+                <?php if (!empty($exibir)) : ?>
+                    <p><?php echo $exibir ?></p>
                 <?php endif; ?>
+                <br/><br/>
+                <footer>
+                    <p>Desenvolvido por: Gregory</p>
+                </footer>
             </div>
         </form>
     </body>
+
     </html>
