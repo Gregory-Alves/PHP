@@ -102,36 +102,38 @@
     <style>
 
         body {
-            background-color: black;
+            background: rgb(34,193,195);
+            background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(104,50,219,1) 100%);
         }
 
         h1 {
             border-bottom: 3px solid black;
             text-shadow: 5px 5px 5px black;
-            margin-top: -50px;
+            margin-top: -30px;
             font-size: 60px;
         }
 
         .container {
+            box-sizing: border-box;
             text-align: center;
             top: 50%;
             left: 50%;
+            /*width: 110vh;*/
             width: 400px;
             transform: translate(-50%, -50%);
             position: absolute;
-            border: 3px lightblue solid;
+            border: 3px black solid;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 5%;
+            padding: 4%;
             background-color:#6832DB;
             color: lightblue;
             input[type="text"]{background-color: lightblue;}
             input[type="text"]:focus{background-color: white;}
             select{background-color: lightblue;}
             input[type="text"]{text-align: center;}
-            
             select:focus{background-color: white;}
         }
         input {
@@ -165,14 +167,11 @@
             transition: border-color 0.3s;
         }
 
-        option {
-            color: black;
-            background-color: lightblue;
-        }
+       
 
         button {
             width: 80%;
-            height: 50px;
+            height: 40px;
             background-color: black;
             color: white;
             border-radius: 10px;
@@ -181,7 +180,7 @@
         }
 
         p {
-            font-size: 25px;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: -50px;
             color:black;
@@ -195,13 +194,13 @@
                 <input type="text" name="num1" placeholder="Digite o primeiro número"><br />
                 <input type="text" name="num2" placeholder="Digite o segundo número"><br />
                 
-                <button type="button" name="operacao" value="adicao">Adição</button>
-                <button type="button" name="operacao" value="subtracao">Subtração</button>
-                <button type="button" name="operacao" value="divisao">Divisão</button>
-                <button type="button" name="operacao" value="multiplicacao">Multiplicação</button>
-                <button type="button" name="operacao" value="exponenciacao">Exponenciação</button>
-                <button type="button" name="operacao" value="raiz quadrada">Raiz Quadrada</button>
-                <button type="button" name="operacao" value="fatorial">Fatorial</button>
+                <button type="submit" name="operacao" value="adicao">Adição</button>
+                <button type="submit" name="operacao" value="subtracao">Subtração</button>
+                <button type="submit" name="operacao" value="divisao">Divisão</button>
+                <button type="submit" name="operacao" value="multiplicacao">Multiplicação</button>
+                <button type="submit" name="operacao" value="exponenciacao">Exponenciação</button>
+                <button type="submit" name="operacao" value="raiz quadrada">Raiz Quadrada</button>
+                <button type="submit" name="operacao" value="fatorial">Fatorial</button>
                 
                 <!--<select name="operacao">
                     <option value="adicao">Adição</option>
@@ -212,12 +211,12 @@
                     <option value="raiz quadrada">Raiz Quadrada</option>
                     <option value="fatorial">Fatorial</option>
                 </select>-->
+                <!--<button type="submit" value="Calcular">Calcular</button>-->
 
-                <br /><br />
-                <button type="submit" value="Calcular">Calcular</button>
-
-                <br /><br />
+                <br />
+                <?php if (!empty($exibir)): ?>
                 <p><?php echo $exibir ?></p>
+                <?php endif; ?>
             </div>
         </form>
     </body>
