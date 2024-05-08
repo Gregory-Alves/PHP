@@ -6,11 +6,18 @@
     $num2 = 0;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        if (($_POST['num1'] == 0 || $_POST['num2'] == 0) && ($_POST['operacao'] == 'divisao')) {
+        if (($_POST['num1'] == 0 || $_POST['num2'] == 0) && ($_POST['operacao'] == 'divisao')) 
+        {
             $exibir = "Não é possível dividir quando um dos numeros é 0!";
-        } elseif ($_POST['num1'] == 0 && $_POST['num2'] == 0) {
+        } 
+        elseif ($_POST['num1'] == 0 && $_POST['num2'] == 0) 
+        {
+
             $exibir = "Não é possível realizar operações quando os dois numeros são 0!";
-        } elseif (is_numeric($_POST['num1']) && is_numeric($_POST['num2'])) {
+        } 
+        elseif (is_numeric($_POST['num1']) && is_numeric($_POST['num2'])) 
+        {
+
             $num1 = $_POST['num1'];
             $num2 = $_POST['num2'];
             $operacao = $_POST['operacao'];
