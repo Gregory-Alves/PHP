@@ -1,6 +1,7 @@
 <?php 
 
-require_once(__DIR__ . '/../Conexao.php');
+require_once('Model/Conexao.php');
+
 
 class Usuario {
 
