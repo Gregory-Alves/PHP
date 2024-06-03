@@ -1,11 +1,9 @@
 <?php 
 
-require_once('Model/Conexao.php');
-
+require_once(__DIR__ . '/Conexao.php');
 
 class Usuario {
 
-    // Atributos
     private $idUsuario;
     private $nomeUsuario;
     private $estadoCivil;
@@ -32,6 +30,38 @@ class Usuario {
             echo "Erro ao cadastrar usuário! " . $erro->getMessage();
         }
     }
+
+    public function listarUsuarios(){
+        $conn = Conexao::conectar();
+
+        $sql = $conn->prepare("SELECT id, nomeUsuario, estadoCivil, DATE_FORMAT(dataNascimento, '%d/%m/%Y') as dataNascimento, estadoNascimento, cpf, profissao FROM usuarios");
+
+        $sql->execute();
+
+        $result = $sql->fetchAll();
+
+        require_once(__DIR__ . '/../View/Listar.php');
+    }
+
+    public function ExcluirUsuario($id)
+        {
+            $conn = Conexao::conectar();
+
+            $sql = $conn->prepare("SELECT id, nomeUsuario, estadoCivil, DATE_FORMAT(dataNascimento, '%d/%m/%Y') as dataNascimento, estadoNascimento, cpf, profissao FROM teste.usuarios");
+
+            $sql->execute();
+            $result = $sql->fetchAll();
+
+            if(!empty($id))
+            {
+                $sqlDelete = $conn->prepare("DELETE FROM teste.usuarios WHERE id=$id");
+                $sqlDelete->execute();
+            }
+           
+            require_once('./View/excluir.php');
+            
+
+        }
 
     // Getters e Setters
     public function getIdUsuario() {

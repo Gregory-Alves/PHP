@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<script>
+    function mascaraCPF() {
+        var cpf = document.getElementById('cpf');
+        if (cpf.value.length == 3 || cpf.value.length == 7) 
+        {
+            cpf.value += ".";
+        } else if (cpf.value.length == 11) {
+            cpf.value += "-";
+        }
+    }
+</script>
+
+
 <body>
     <h1>Cadastrar</h1>
 
@@ -27,7 +41,7 @@
         <input type="text" name="estadoNascimento" id="estadoNascimento" placeholder="Estado"><br><br>
 
         <label>CPF:</label>
-        <input type="text" name="cpf" id="cpf" placeholder="Informe seu CPF" maxlength="14"><br><br>
+        <input type="text" name="cpf" id="cpf" placeholder="Informe seu CPF" maxlength="14" onkeyup="mascaraCPF()"><br><br>
 
         <label>Profissão:</label>
         <input type="text" name="profissao" id="profissao" placeholder="Informe sua profissão" maxlength="14"><br><br>
